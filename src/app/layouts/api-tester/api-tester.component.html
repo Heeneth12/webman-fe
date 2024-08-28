@@ -1,0 +1,106 @@
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav class="sidebar py-3 px-2" [ngClass]="{ collapsed: isSidebarCollapsed }">
+    <!-- Sidebar Toggle Button -->
+    <button class="btn btn-primary sidebar-toggle" (click)="toggleSidebar()">
+      {{ isSidebarCollapsed ? ">" : "<" }}
+    </button>
+
+    <div class="sidebar-content">
+      <!-- Search Icon (Visible only when sidebar is collapsed) -->
+      <div *ngIf="isSidebarCollapsed" class="d-flex justify-content-center mb-2">
+        <i class="bi bi-search"></i>
+      </div>
+      
+      <!-- Search Bar (Visible only when sidebar is expanded) -->
+      <div *ngIf="!isSidebarCollapsed" class="d-flex align-items-center mb-2">
+        <i class="bi bi-search me-2"></i>
+        <input class="w-100 p-1" type="text" placeholder="Filter" />
+      </div>
+      
+      <!-- Sidebar Menu -->
+      <div class="d-flex flex mt-2" [ngClass]="{ 'flex-column': isSidebarCollapsed, 'flex-row': !isSidebarCollapsed }"> 
+        <button
+          class="btn btn-link sidebar-button"
+          [ngClass]="{ active: activeTab === 'history' }"
+          (click)="setActiveTab('history')"
+        >
+          <i class="bi bi-clock-history"></i>
+          <span *ngIf="!isSidebarCollapsed">History</span>
+        </button>
+        <button
+          class="btn btn-link sidebar-button"
+          [ngClass]="{ active: activeTab === 'collection' }"
+          (click)="setActiveTab('collection')"
+        >
+          <i class="bi bi-collection"></i>
+          <span *ngIf="!isSidebarCollapsed">Collection</span>
+        </button>
+      </div>
+      
+    </div>
+    
+  </nav>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="container">
+      <header class="header d-flex align-items-center mb-3">
+        <!-- Request Type Dropdown -->
+        <div class="me-2">
+          <select
+            class="form-select"
+            id="request-type"
+            [(ngModel)]="requestType"
+          >
+            <option>GET</option>
+            <option>POST</option>
+            <option>PUT</option>
+            <option>DELETE</option>
+            <!-- More options... -->
+          </select>
+        </div>
+        <!-- API URL Input -->
+        <div class="flex-grow-1 me-2">
+          <input
+            type="text"
+            class="form-control"
+            id="api-url"
+            [(ngModel)]="apiUrl"
+            placeholder="Enter API URL"
+          />
+        </div>
+        <!-- Send Request Button -->
+        <div>
+          <button class="btn btn-primary w-100" (click)="sendRequest()">
+            Send Request
+          </button>
+        </div>
+      </header>
+
+      <!-- Request Editor -->
+      <div class="request-editor">
+        <label for="request-body">Request Body</label>
+        <textarea
+          class="form-control"
+          id="request-body"
+          rows="6"
+          [(ngModel)]="requestBody"
+          placeholder="Enter request body here"
+        ></textarea>
+      </div>
+
+      <!-- Response Display -->
+      <div class="response-display">
+        <h4>Response</h4>
+        <div *ngIf="response">
+          <p><strong>Status:</strong> {{ response.status }}</p>
+          <p><strong>Headers:</strong></p>
+          <pre>{{ response.headers | json }}</pre>
+          <p><strong>Body:</strong></p>
+          <pre>{{ response.body | json }}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

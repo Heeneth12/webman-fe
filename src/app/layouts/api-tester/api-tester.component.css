@@ -1,0 +1,144 @@
+/* Wrapper for Sidebar and Main Content */
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 350px;
+  background-color: #333;
+  color: #fff;
+  border-right: 1px solid #444;
+  transition: width 0.3s;
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  position: absolute;
+  top: 10px;
+  right: -40px;
+  transform: rotate(90deg);
+}
+
+/* Sidebar Content Layout */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Sidebar Buttons */
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  border: none;
+}
+
+.sidebar-button i {
+  font-size: 1.5rem;
+}
+
+.sidebar-button.active {
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+}
+
+
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+/* Header Layout */
+.header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Request Editor */
+.request-editor {
+  margin-top: 20px;
+}
+
+/* Response Display */
+.response-display {
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Search icon (when sidebar is collapsed) */
+.sidebar-content .bi-search {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Search bar (when sidebar is expanded) */
+.sidebar-content input[type="text"] {
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: calc(100% - 2rem);
+}
+
+.sidebar-content .bi-search.me-2 {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Sidebar buttons */
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+  border: none;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.sidebar-button i {
+  font-size: 1.5rem;
+}
+
+.sidebar-button span {
+  margin-left: 10px;
+}
+
+.sidebar-button.active {
+  font-weight: bold;
+  text-decoration: underline;
+  color: white;
+}
+
+/* Flexbox adjustments for sidebar menu */
+.flex-column {
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-row {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.sidebar.collapsed .sidebar-button span {
+  display: none;
+}

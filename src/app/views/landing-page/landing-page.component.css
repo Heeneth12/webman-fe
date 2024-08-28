@@ -1,0 +1,27 @@
+/* Optional custom styles for the landing page */
+.landing-page {
+    background-color: #f8f9fa; /* Light grey background */
+  }
+  
+  .landing-page h1 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #000000; /* Darker text */
+  }
+  
+  .landing-page h2 {
+    color: #ff6600; /* Orange text for emphasis */
+  }
+  
+  .landing-page .btn-primary {
+    background-color: #ff6600;
+    border-color: #ff6600;
+  }
+  
+  .landing-page .btn-primary:hover {
+    background-color: #e55a00;
+    border-color: #e55a00;
+  }
+  
+
+  
